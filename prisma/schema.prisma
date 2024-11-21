@@ -3,11 +3,10 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider          = "mysql"
+  url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
-
 
 model annivers {
   id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
@@ -62,29 +61,29 @@ model blacks {
 }
 
 model breads {
-  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  name        String    @db.VarChar(255)
-  fromprice   Decimal   @db.Decimal(10, 2)
-  toprice     Decimal   @db.Decimal(10, 2)
-  fromsize    String    @db.Text
-  tosize      String    @db.Text
-  description String    @db.Text
-  image       String?   @db.VarChar(255)
-  created_at  DateTime? @db.Timestamp(0)
-  updated_at  DateTime? @db.Timestamp(0)
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
 }
 
 model burgers {
-  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  name        String    @db.VarChar(255)
-  fromprice   Decimal   @db.Decimal(10, 2)
-  toprice     Decimal   @db.Decimal(10, 2)
-  fromsize    String    @db.Text
-  tosize      String    @db.Text
-  description String    @db.Text
-  image       String?   @db.VarChar(255)
-  created_at  DateTime? @db.Timestamp(0)
-  updated_at  DateTime? @db.Timestamp(0)
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
 }
 
 model butter {
@@ -220,7 +219,8 @@ model items {
   image       String?   @db.VarChar(255)
   created_at  DateTime? @db.Timestamp(0)
   updated_at  DateTime? @db.Timestamp(0)
-  customers   customers @relation(fields: [customer_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "items_customer_id_foreign")
+  flavor      String?   @db.VarChar(255)
+  customers   customers @relation(fields: [customer_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "items_customer_id_foreign")
 
   @@index([customer_id], map: "items_customer_id_foreign")
 }
@@ -301,7 +301,7 @@ model order_items {
   price              Decimal          @db.Decimal(8, 2)
   created_at         DateTime?        @db.Timestamp(0)
   updated_at         DateTime?        @db.Timestamp(0)
-  customer_details   customer_details @relation(fields: [customer_detail_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "order_items_customer_detail_id_foreign")
+  customer_details   customer_details @relation(fields: [customer_detail_id], references: [id], onDelete: Cascade, onUpdate: Restrict, map: "order_items_customer_detail_id_foreign")
 
   @@index([customer_detail_id], map: "order_items_customer_detail_id_foreign")
 }
@@ -344,16 +344,16 @@ model pines {
 }
 
 model pizzas {
-  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  name        String    @db.VarChar(255)
-  fromprice   Decimal   @db.Decimal(10, 2)
-  toprice     Decimal   @db.Decimal(10, 2)
-  fromsize    String    @db.Text
-  tosize      String    @db.Text
-  description String    @db.Text
-  image       String?   @db.VarChar(255)
-  created_at  DateTime? @db.Timestamp(0)
-  updated_at  DateTime? @db.Timestamp(0)
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
 }
 
 model randoms {
@@ -475,16 +475,18 @@ model users {
 }
 
 model vanillas {
-  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  product_id  String    @db.VarChar(50)
-  name        String    @db.VarChar(255)
-  fromprice   Decimal   @db.Decimal(10, 2)
-  description String    @db.Text
-  information String    @db.Text
-  image       String?   @db.VarChar(255)
-  created_at  DateTime? @db.Timestamp(0)
-  updated_at  DateTime? @db.Timestamp(0)
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
 }
+
 model snacks {
   id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
   name          String    @db.VarChar(255)
@@ -497,7 +499,47 @@ model snacks {
   created_at    DateTime? @db.Timestamp(0)
   updated_at    DateTime? @db.Timestamp(0)
 }
-model topRatedProducts {
+
+model cups {
+  id            BigInt    @id @default(autoincrement())
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  updated_at    DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model fruits {
+  id            BigInt    @id @default(autoincrement())
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  updated_at    DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model gels {
+  id            BigInt    @id @default(autoincrement())
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  updated_at    DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model latests {
   id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
   name          String    @db.VarChar(255)
   fromprice     Decimal   @db.Decimal(10, 2)
@@ -509,7 +551,34 @@ model topRatedProducts {
   created_at    DateTime? @db.Timestamp(0)
   updated_at    DateTime? @db.Timestamp(0)
 }
-model latestProducts {
+
+model marbles {
+  id            BigInt    @id @default(autoincrement())
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  updated_at    DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model matkas {
+  id            BigInt    @id @default(autoincrement())
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  updated_at    DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model pastaitems {
   id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
   name          String    @db.VarChar(255)
   fromprice     Decimal   @db.Decimal(10, 2)
@@ -521,7 +590,21 @@ model latestProducts {
   created_at    DateTime? @db.Timestamp(0)
   updated_at    DateTime? @db.Timestamp(0)
 }
-model reviewProducts {
+
+model photos {
+  id            BigInt    @id @default(autoincrement())
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  updated_at    DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model rates {
   id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
   name          String    @db.VarChar(255)
   fromprice     Decimal   @db.Decimal(10, 2)
@@ -533,8 +616,9 @@ model reviewProducts {
   created_at    DateTime? @db.Timestamp(0)
   updated_at    DateTime? @db.Timestamp(0)
 }
-model vanilla {
-  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+
+model spiders {
+  id            BigInt    @id @default(autoincrement())
   name          String    @db.VarChar(255)
   fromprice     Decimal   @db.Decimal(10, 2)
   toprice       Decimal   @db.Decimal(10, 2)
@@ -542,46 +626,23 @@ model vanilla {
   toweightage   String    @db.Text
   description   String    @db.Text
   image         String?   @db.VarChar(255)
-  created_at    DateTime? @db.Timestamp(0)
-  updated_at    DateTime? @db.Timestamp(0)
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  updated_at    DateTime? @default(now()) @db.Timestamp(0)
 }
-model pizzaItems {
+
+model testtable {
   id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
   name          String    @db.VarChar(255)
-  fromprice     Decimal   @db.Decimal(10, 2)
-  toprice       Decimal   @db.Decimal(10, 2)
-  fromweightage String    @db.Text
-  toweightage   String    @db.Text
-  description   String    @db.Text
-  image         String?   @db.VarChar(255)
   created_at    DateTime? @db.Timestamp(0)
   updated_at    DateTime? @db.Timestamp(0)
-}
-model burgerItems {
-  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  name          String    @db.VarChar(255)
-  fromprice     Decimal   @db.Decimal(10, 2)
-  toprice       Decimal   @db.Decimal(10, 2)
-  fromweightage String    @db.Text
-  toweightage   String    @db.Text
   description   String    @db.Text
-  image         String?   @db.VarChar(255)
-  created_at    DateTime? @db.Timestamp(0)
-  updated_at    DateTime? @db.Timestamp(0)
-}
-model breadItems {
-  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
-  name          String    @db.VarChar(255)
   fromprice     Decimal   @db.Decimal(10, 2)
-  toprice       Decimal   @db.Decimal(10, 2)
   fromweightage String    @db.Text
+  toprice       Decimal   @db.Decimal(10, 2)
   toweightage   String    @db.Text
-  description   String    @db.Text
-  image         String?   @db.VarChar(255)
-  created_at    DateTime? @db.Timestamp(0)
-  updated_at    DateTime? @db.Timestamp(0)
 }
-model PastaItems {
+
+model tops {
   id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
   name          String    @db.VarChar(255)
   fromprice     Decimal   @db.Decimal(10, 2)

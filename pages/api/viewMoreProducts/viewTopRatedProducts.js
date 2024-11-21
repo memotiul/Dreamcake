@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
       // Fetch top-rated products
-      const topRatedProducts = await prisma.topRatedProducts.findMany();
+      const topRatedProducts = await prisma.tops.findMany();
       const serializedTopRatedProducts = topRatedProducts.map((topRated) => ({
         ...topRated,
         id: topRated.id.toString(), // Convert `bigint` to `string`

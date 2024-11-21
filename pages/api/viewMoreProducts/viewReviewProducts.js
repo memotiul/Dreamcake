@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
       // Fetch trends
-      const reviewProducts = await prisma.reviewProducts.findMany();
+      const reviewProducts = await prisma.rates.findMany();
       const serializedReviewProducts = reviewProducts.map((review) => ({
         ...review,
         id: review.id.toString(), // Convert `bigint` to `string`

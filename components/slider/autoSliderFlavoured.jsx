@@ -103,7 +103,7 @@ const Carousel = () => {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent  transition-opacity duration-500">
                   <div className="absolute bottom-0 p-4 text-white font-bold">
-                    <h3 className="text-xl font-bold">{product.description}</h3>
+                    <h3 className="text-xl font-bold">{product.name}</h3>
 
                     <p className="text-sm">Weight: {product.fromweightage}</p>
 
