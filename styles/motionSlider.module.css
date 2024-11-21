@@ -1,0 +1,41 @@
+.flex {
+    display: flex;
+  }
+  
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  
+  .transition-transform {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .w-full {
+    width: 100%;
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  .absolute {
+    position: absolute;
+  }
+  
+  .inset-x-0 {
+    left: 0;
+    right: 0;
+  }
+  
+  .top {
+    top: 50%;
+  }
+  
+  .transform {
+    transform: translateY(-50%);
+  }
+  
+  .hover\:text-yellow-400:hover {
+    color: #facc15; /* Adjust color as needed */
+  }
+  

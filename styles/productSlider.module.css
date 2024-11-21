@@ -1,0 +1,35 @@
+.sliderContainer {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.sliderItem {
+    flex: 0 0 33.33%; /* 3 items per slide, adjust as needed */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.sliderButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}

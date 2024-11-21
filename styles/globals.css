@@ -1,0 +1,135 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #020617;
+  font-family: "Modern Antiqua", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.playFair {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Adjust weight as needed */
+  font-style: normal;
+}
+.oswald {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.bg-greenColor {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 121 54 / var(--tw-bg-opacity));
+}
+.bg-redColor {
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 52 51 / var(--tw-bg-opacity));
+}
+.bg-purpleColor {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 36 60 / var(--tw-bg-opacity));
+}
+.bg-blueColor {
+  --tw-bg-opacity: 1;
+  background-color: rgb(36 60 71 / var(--tw-bg-opacity));
+}
+.hover-effect {
+  background-color: #020617; /* Default background color */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.hover-effect:hover,
+.hover-effect.touch-active {
+  background-color: #ffcc00;
+}
+/* Optional: Add any additional styles for the slider */
+.slider-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-items {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+@keyframes scatter {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%) scale(1);
+    opacity: 0;
+  }
+}
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+}
+
+.show .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sliderContainer {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.sliderItem {
+  flex: 0 0 33.33%; /* 3 items per slide, adjust as needed */
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.sliderButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.5rem 1rem;
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+/* Add this CSS to your stylesheet or within a style tag */
+.magnify-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnify-container img {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+  cursor: crosshair;
+}
+
+.magnify-container:hover img {
+  transform: scale(1.5);
+}
+
+.magnify-container img:hover {
+  transform-origin: var(--mouse-x) var(--mouse-y);
+}

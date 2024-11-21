@@ -1,0 +1,595 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+
+model annivers {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model barbies {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model births {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model blacks {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model breads {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name        String    @db.VarChar(255)
+  fromprice   Decimal   @db.Decimal(10, 2)
+  toprice     Decimal   @db.Decimal(10, 2)
+  fromsize    String    @db.Text
+  tosize      String    @db.Text
+  description String    @db.Text
+  image       String?   @db.VarChar(255)
+  created_at  DateTime? @db.Timestamp(0)
+  updated_at  DateTime? @db.Timestamp(0)
+}
+
+model burgers {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name        String    @db.VarChar(255)
+  fromprice   Decimal   @db.Decimal(10, 2)
+  toprice     Decimal   @db.Decimal(10, 2)
+  fromsize    String    @db.Text
+  tosize      String    @db.Text
+  description String    @db.Text
+  image       String?   @db.VarChar(255)
+  created_at  DateTime? @db.Timestamp(0)
+  updated_at  DateTime? @db.Timestamp(0)
+}
+
+model butter {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model celebrations {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model chocos {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model customer_details {
+  id          BigInt        @id @default(autoincrement()) @db.UnsignedBigInt
+  fullname    String        @db.VarChar(255)
+  email       String?       @db.VarChar(255)
+  mobile      String        @db.VarChar(255)
+  address     String        @db.Text
+  landmark    String?       @db.VarChar(255)
+  city        String        @db.VarChar(255)
+  created_at  DateTime?     @db.Timestamp(0)
+  updated_at  DateTime?     @db.Timestamp(0)
+  order_items order_items[]
+}
+
+model customers {
+  id         BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  fullname   String    @db.VarChar(255)
+  email      String?   @db.VarChar(255)
+  mobile     String    @db.VarChar(255)
+  address    String    @db.Text
+  landmark   String?   @db.VarChar(255)
+  city       String    @db.VarChar(255)
+  pincode    String    @db.VarChar(255)
+  subtotal   Decimal   @default(0.00) @db.Decimal(10, 2)
+  total      Decimal   @default(0.00) @db.Decimal(10, 2)
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+  items      items[]
+}
+
+model doremons {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model failed_jobs {
+  id         BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  uuid       String   @unique(map: "failed_jobs_uuid_unique") @db.VarChar(255)
+  connection String   @db.Text
+  queue      String   @db.Text
+  payload    String   @db.LongText
+  exception  String   @db.LongText
+  failed_at  DateTime @default(now()) @db.Timestamp(0)
+}
+
+model favicons {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model flavours {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model home_image {
+  id         BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+}
+
+model items {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  customer_id BigInt    @db.UnsignedBigInt
+  name        String    @db.VarChar(255)
+  weightage   Int
+  quantity    Int
+  price       Decimal   @db.Decimal(8, 2)
+  image       String?   @db.VarChar(255)
+  created_at  DateTime? @db.Timestamp(0)
+  updated_at  DateTime? @db.Timestamp(0)
+  customers   customers @relation(fields: [customer_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "items_customer_id_foreign")
+
+  @@index([customer_id], map: "items_customer_id_foreign")
+}
+
+model lines {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model malais {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model mangos {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model mickies {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model migrations {
+  id        Int    @id @default(autoincrement()) @db.UnsignedInt
+  migration String @db.VarChar(255)
+  batch     Int
+}
+
+/// This model has been renamed to 'Renamednew' during introspection, because the original name 'new' is reserved.
+model Renamednew {
+  id         BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+
+  @@map("new")
+}
+
+model order_items {
+  id                 BigInt           @id @default(autoincrement()) @db.UnsignedBigInt
+  customer_detail_id BigInt           @db.UnsignedBigInt
+  product_name       String           @db.VarChar(255)
+  weightage          Int
+  quantity           Int
+  price              Decimal          @db.Decimal(8, 2)
+  created_at         DateTime?        @db.Timestamp(0)
+  updated_at         DateTime?        @db.Timestamp(0)
+  customer_details   customer_details @relation(fields: [customer_detail_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "order_items_customer_detail_id_foreign")
+
+  @@index([customer_detail_id], map: "order_items_customer_detail_id_foreign")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model password_resets {
+  email      String    @db.VarChar(255)
+  token      String    @db.VarChar(255)
+  created_at DateTime? @db.Timestamp(0)
+
+  @@index([email], map: "password_resets_email_index")
+  @@ignore
+}
+
+model personal_access_tokens {
+  id             BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  tokenable_type String    @db.VarChar(255)
+  tokenable_id   BigInt    @db.UnsignedBigInt
+  name           String    @db.VarChar(255)
+  token          String    @unique(map: "personal_access_tokens_token_unique") @db.VarChar(64)
+  abilities      String?   @db.Text
+  last_used_at   DateTime? @db.Timestamp(0)
+  created_at     DateTime? @db.Timestamp(0)
+  updated_at     DateTime? @db.Timestamp(0)
+
+  @@index([tokenable_type, tokenable_id], map: "personal_access_tokens_tokenable_type_tokenable_id_index")
+}
+
+model pines {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model pizzas {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name        String    @db.VarChar(255)
+  fromprice   Decimal   @db.Decimal(10, 2)
+  toprice     Decimal   @db.Decimal(10, 2)
+  fromsize    String    @db.Text
+  tosize      String    @db.Text
+  description String    @db.Text
+  image       String?   @db.VarChar(255)
+  created_at  DateTime? @db.Timestamp(0)
+  updated_at  DateTime? @db.Timestamp(0)
+}
+
+model randoms {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model reds {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model reviews {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name        String    @db.VarChar(255)
+  message     String?   @db.VarChar(255)
+  email       String?   @db.VarChar(255)
+  description String    @db.Text
+  image       String?   @db.VarChar(255)
+  created_at  DateTime? @db.Timestamp(0)
+  updated_at  DateTime? @db.Timestamp(0)
+}
+
+model straws {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model surprises {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model tigers {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model trends {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model types {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+
+model user {
+  id    Int     @id @default(autoincrement())
+  email String  @unique(map: "User_email_key")
+  name  String?
+}
+
+model users {
+  id             BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name           String    @db.VarChar(255)
+  email          String    @unique(map: "users_email_unique") @db.VarChar(255)
+  password       String    @db.VarChar(255)
+  remember_token String?   @db.VarChar(100)
+  created_at     DateTime? @db.Timestamp(0)
+  updated_at     DateTime? @db.Timestamp(0)
+}
+
+model vanillas {
+  id          BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  product_id  String    @db.VarChar(50)
+  name        String    @db.VarChar(255)
+  fromprice   Decimal   @db.Decimal(10, 2)
+  description String    @db.Text
+  information String    @db.Text
+  image       String?   @db.VarChar(255)
+  created_at  DateTime? @db.Timestamp(0)
+  updated_at  DateTime? @db.Timestamp(0)
+}
+model snacks {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+model topRatedProducts {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+model latestProducts {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+model reviewProducts {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+model vanilla {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+model pizzaItems {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+model burgerItems {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+model breadItems {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}
+model PastaItems {
+  id            BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  name          String    @db.VarChar(255)
+  fromprice     Decimal   @db.Decimal(10, 2)
+  toprice       Decimal   @db.Decimal(10, 2)
+  fromweightage String    @db.Text
+  toweightage   String    @db.Text
+  description   String    @db.Text
+  image         String?   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+}

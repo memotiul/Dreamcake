@@ -1,0 +1,42 @@
+/* home.module.css */
+
+.onHover {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    position: relative;
+    background: #facc15;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    text-align: center; /* Ensure text is centered */
+    transition: color 0.3s ease;
+    perspective: 1px; /* Adjust perspective */
+  }
+  
+  .onHover::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #020617;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: transform 0.3s ease-out;
+  }
+  
+  .onHover:hover::after {
+    transform: scale(2);
+  }
+  .onHover:hover h1 {
+    color: #ffffff; /* Change text color on hover */
+  }
+  .hero-header {
+    background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)),;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
