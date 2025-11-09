@@ -3,17 +3,17 @@ import TrendyTab from "./trendyTab";
 import FlavouredTab from "./flavouredTab";
 import SnacksTab from "./snacksTab";
 
-const Tabs = () => {
+const Tabs = ({trends,flavours,snacks}) => {
   const [activeTab, setActiveTab] = useState("Trendy");
 
   const renderTabContent = () => {
     switch (activeTab) {
       case "Trendy":
-        return <TrendyTab />;
+        return <TrendyTab trends={trends} />;
       case "Flavoured":
-        return <FlavouredTab />;
+        return <FlavouredTab flavours={flavours}/>;
       case "Snacks":
-        return <SnacksTab />;
+        return <SnacksTab snacks={snacks}/>;
     }
   };
 

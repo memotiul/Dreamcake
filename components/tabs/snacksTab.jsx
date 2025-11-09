@@ -6,26 +6,26 @@ import { useEffect, useContext, useState } from "react";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { FaExclamationTriangle } from "react-icons/fa";
 
-const SnacksTab = () => {
+const SnacksTab = ({snacks}) => {
   // const router = useRouter();
   // const handleNavigation = (type) => {
   //   router.push(`/products?type=${type}`);
   // };
 
-  const [snacks, setSnacks] = useState([]);
-  useEffect(() => {
-    const fetchSnacks = async () => {
-      try {
-        const response = await fetch("/api/snacks");
-        const data = await response.json();
-        setSnacks(data);
-      } catch (error) {
-        console.error("Error fetching snacks:", error);
-      }
-    };
+  // const [snacks, setSnacks] = useState([]);
+  // useEffect(() => {
+  //   const fetchSnacks = async () => {
+  //     try {
+  //       const response = await fetch("/api/snacks");
+  //       const data = await response.json();
+  //       setSnacks(data);
+  //     } catch (error) {
+  //       console.error("Error fetching snacks:", error);
+  //     }
+  //   };
 
-    fetchSnacks();
-  }, []);
+  //   fetchSnacks();
+  // }, []);
 
   const { addItemToCart } = useContext(CartContext);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);

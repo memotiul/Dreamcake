@@ -5,34 +5,35 @@ import { PiShoppingCartFill } from "react-icons/pi";
 import { AiOutlineShopping } from "react-icons/ai";
 import { GiClick } from "react-icons/gi";
 
-const FlavouredTab = () => {
+const FlavouredTab = ({flavours}) => {
   const router = useRouter();
   const handleNavigation = (type) => {
     router.push(`/products?type=${type}`);
   };
 
-  const [flavour, setflavour] = useState([]);
-  // Default to 3 items per page
+//   const [flavour, setflavour] = useState([]);
+//   // Default to 3 items per page
 
-  useEffect(() => {
-    const fetchflavour = async () => {
-      try {
-        const response = await fetch("/api/moreFlavoured");
-        const data = await response.json();
-        setflavour(data);
-      } catch (error) {
-        console.error("Error fetching flavour:", error);
-      }
-    };
+//  useEffect(() => {
+//     const fetchFlavours = async () => {
+//       try {
+//         const response = await fetch("https://rosmalai.in/api/flavours");
+//         const result = await response.json();
+//         // result.data contains the array of flavours
+//         setflavour(result.data);
+//       } catch (error) {
+//         console.error("Error fetching flavours:", error);
+//       }
+//     };
 
-    fetchflavour();
-  }, []);
+//     fetchFlavours();
+//   }, []);
   return (
     <>
       <div className="mt-4 lg:px-24">
         <div className="p-4 md:px-28 lg:px-16 rounded mb-2 text-white">
           <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
-            {flavour.map((product, index) => (
+            {flavours.map((product, index) => (
               <li key={index} className="cursor-pointer">
                 {/* <div className="relative group h-56 grid place-items-center  bg-stone-100 rounded-lg ease-linear duration-200 lg:h-40">
                   <img

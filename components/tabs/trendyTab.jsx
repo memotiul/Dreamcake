@@ -5,27 +5,28 @@ import { useState, useEffect } from "react";
 import { PiShoppingCartFill } from "react-icons/pi";
 import { GiClick } from "react-icons/gi";
 
-const TrendyTab = () => {
+const TrendyTab = ({trends}) => {
   const router = useRouter();
   const handleNavigation = (type) => {
     router.push(`/products?type=${type}`);
   };
 
-  const [trends, setTrends] = useState([]);
+  // const [trends, setTrends] = useState([]);
 
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await fetch("/api/trendy");
-        const data = await response.json();
-        setTrends(data);
-      } catch (error) {
-        console.error("Error fetching trends:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchReviews = async () => {
+  //     try {
+  //       const response = await fetch("https://rosmalai.in/api/trends");
+  //       const result = await response.json();
+  //       // result.data contains the array of flavours
+  //       setTrends(result.data);
+  //     } catch (error) {
+  //       console.error("Error fetching trends:", error);
+  //     }
+  //   };
 
-    fetchReviews();
-  }, []);
+  //   fetchReviews();
+  // }, []);
   return (
     <>
       <div className="mt-4 lg:px-24">
