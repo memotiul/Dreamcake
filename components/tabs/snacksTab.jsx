@@ -111,7 +111,7 @@ const SnacksTab = ({snacks}) => {
                 </div>
                 <div className="">
                   <div className="mb-2">
-                    <h4 className="text-2xl">{product.description}</h4>
+                    <h4 className="text-2xl">{product.name}</h4>
                     <p className="text-sm text-gray-300">
                       Totally Home Made Food.Fresh,Hygenic and Eggless.
                     </p>
