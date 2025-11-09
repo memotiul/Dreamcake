@@ -17,7 +17,6 @@ const Carousel = ({customers}) => {
         console.error("Error fetching review:", error);
       }
     };
-
     fetchReview();
     // Set the number of images to show based on screen size
     const updateSlidesToShow = () => {
