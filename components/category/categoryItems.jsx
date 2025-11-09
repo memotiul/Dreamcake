@@ -16,7 +16,7 @@ import { useEffect, useContext, useState } from "react";
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { FaExclamationTriangle } from "react-icons/fa";
 
-export default function Home({trends,flavours,snacks}) {
+export default function Home({trends,flavours,snacks,latests,reviews,tops,customers}) {
   const products = [
     { name: "Product 1", imageUrl: "/images/burger-1.png", price: "$30.00" },
     { name: "Product 2", imageUrl: "/images/burger-2.png", price: "$25.00" },
@@ -241,15 +241,15 @@ export default function Home({trends,flavours,snacks}) {
       </div>
       <ProductsTab trends={trends} flavours={flavours} snacks={snacks}/>
       <div className="flex md:flex-row flex-col md:ml-4 items-center justify-between md:gap-16 xl:px-28 lg:px-16">
-        <ProductSlider addToCartHandler={addToCartHandler} />
-        <ProductTopRated addToCartHandler={addToCartHandler} />
+        <ProductSlider addToCartHandler={addToCartHandler} reviews={reviews} />
+        <ProductTopRated addToCartHandler={addToCartHandler}  tops={tops}/>
         {/* <TopRatedProduct  /> */}
-        <ProductLatest addToCartHandler={addToCartHandler} />
+        <ProductLatest addToCartHandler={addToCartHandler} latests={latests}/>
       </div>
-      <MoreProducts addToCartHandler={addToCartHandler} />
+      <MoreProducts addToCartHandler={addToCartHandler} trends={trends}/>
 
       {/* <Review id="review-section" /> */}
-      <AutoSliderReview />
+      <AutoSliderReview customers={customers}/>
     </>
   );
 }

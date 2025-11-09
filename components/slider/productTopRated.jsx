@@ -3,27 +3,27 @@ import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import { PiShoppingCartFill } from "react-icons/pi";
 
-const Slider = ({ addToCartHandler }) => {
+const Slider = ({ addToCartHandler ,tops}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
-  const [topRatedProducts, setTopRatedProducts] = useState([]);
-  useEffect(() => {
-    const fetchTopRatedProducts = async () => {
-      try {
-        const response = await fetch(
-          "/api/viewMoreProducts/viewTopRatedProducts"
-        );
-        const data = await response.json();
-        setTopRatedProducts(data);
-      } catch (error) {
-        console.error("Error fetching:", error);
-      }
-    };
+  // const [topRatedProducts, setTopRatedProducts] = useState([]);
+  // useEffect(() => {
+  //   const fetchTopRatedProducts = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "/api/viewMoreProducts/viewTopRatedProducts"
+  //       );
+  //       const data = await response.json();
+  //       setTopRatedProducts(data);
+  //     } catch (error) {
+  //       console.error("Error fetching:", error);
+  //     }
+  //   };
 
-    fetchTopRatedProducts();
-  }, []);
+  //   fetchTopRatedProducts();
+  // }, []);
   const slide = (direction) => {
-    const maxIndex = Math.ceil(topRatedProducts.length / itemsPerPage) - 1;
+    const maxIndex = Math.ceil(tops.length / itemsPerPage) - 1;
 
     if (direction === "next" && currentIndex < maxIndex) {
       setCurrentIndex(currentIndex + 1);
@@ -32,11 +32,11 @@ const Slider = ({ addToCartHandler }) => {
     }
   };
   useEffect(() => {
-    // Automatically slide to the next set of topRatedProducts after 3 seconds
+    // Automatically slide to the next set of tops after 3 seconds
     const interval = setInterval(() => {
       if (
         currentIndex <
-        Math.ceil(topRatedProducts.length / itemsPerPage) - 1
+        Math.ceil(tops.length / itemsPerPage) - 1
       ) {
         setCurrentIndex(currentIndex + 1);
       } else {
@@ -45,7 +45,7 @@ const Slider = ({ addToCartHandler }) => {
     }, 5000); // 3000 milliseconds (3 seconds)
 
     return () => clearInterval(interval); // Cleanup function to clear interval on unmount
-  }, [currentIndex, topRatedProducts.length]);
+  }, [currentIndex, tops.length]);
   return (
     <div className="mt-8">
       <div className="flex flex-row gap-8 text-gray-300">
@@ -67,13 +67,13 @@ const Slider = ({ addToCartHandler }) => {
           <FaChevronRight
             className={`h-6 w-6 ${
               currentIndex ===
-              Math.ceil(topRatedProducts.length / itemsPerPage) - 1
+              Math.ceil(tops.length / itemsPerPage) - 1
                 ? "opacity-50 cursor-not-allowed"
                 : "hover:text-yellow-400"
             }`}
             disabled={
               currentIndex ===
-              Math.ceil(topRatedProducts.length / itemsPerPage) - 1
+              Math.ceil(tops.length / itemsPerPage) - 1
             }
             onClick={() => slide("next")}
           />
@@ -81,7 +81,7 @@ const Slider = ({ addToCartHandler }) => {
       </div>
 
       <div className="grid grid-row-1 md:grid-row-3 gap-2 text-gray-300">
-        {topRatedProducts
+        {tops
           .slice(
             currentIndex * itemsPerPage,
             currentIndex * itemsPerPage + itemsPerPage

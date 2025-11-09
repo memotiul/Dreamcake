@@ -6,14 +6,14 @@ import Update from "../components/layouts/update";
 
 import SliderContent from "../components/slider/sliderContent";
 
-export default function Home({trends,flavours,snacks}) {
+export default function Home({trends,flavours,snacks,latests,reviews,tops,customers}) {
   const router = useRouter();
   console.log("PROCESS");
   return (
     <>
       <div className="">
         <SliderContent />
-        <CategoryItems trends={trends} flavours={flavours} snacks={snacks}/>
+        <CategoryItems trends={trends} flavours={flavours} snacks={snacks} latests={latests} reviews={reviews} tops={tops} customers={customers}/>
       </div>
     </>
   );
@@ -21,16 +21,24 @@ export default function Home({trends,flavours,snacks}) {
 export async function getStaticProps() {
   try {
     // Fetch all three in parallel
-    const [trendyRes, flavouredRes, snacksRes] = await Promise.all([
+    const [trendyRes, flavouredRes, snacksRes,latestsRes,reviewsRes,topsRes,customerReviewRes] = await Promise.all([
       fetch("https://rosmalai.in/api/trends"),
       fetch("https://rosmalai.in/api/flavours"),
       fetch("https://rosmalai.in/api/snacks"),
+      fetch("https://rosmalai.in/api/latests"),
+      fetch("https://rosmalai.in/api/reviews"),
+      fetch("https://rosmalai.in/api/tops"),
+      fetch("https://rosmalai.in/api/customerReviews"),
     ]);
 
-    const [trendyData, flavouredData, snacksData] = await Promise.all([
+    const [trendyData, flavouredData, snacksData,latestsData,reviewsData,topsData,customerReviewData] = await Promise.all([
       trendyRes.json(),
       flavouredRes.json(),
       snacksRes.json(),
+      latestsRes.json(),
+      reviewsRes.json(),
+      topsRes.json(),
+      customerReviewRes.json(),
     ]);
 
     return {
@@ -38,6 +46,10 @@ export async function getStaticProps() {
         trends: trendyData?.data || [],
         flavours: flavouredData?.data || [],
         snacks: snacksData?.data || [],
+        latests: latestsData?.data || [],
+        reviews: reviewsData?.data || [],
+        tops: topsData?.data || [],
+        customers: customerReviewData?.data || [],
       },
       revalidate: 3600, // re-fetch every hour (optional)
     };
@@ -48,6 +60,10 @@ export async function getStaticProps() {
         trends: [],
         flavours: [],
         snacks: [],
+        latests: [],
+        reviews: [],
+        tops: [],
+        customers: [],
       },
     };
   }

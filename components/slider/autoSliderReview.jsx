@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { GiClick } from "react-icons/gi";
 import { useRouter } from "next/router";
 
-const Carousel = () => {
+const Carousel = ({customers}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [review, setReview] = useState([]);
   const [slidesToShow, setSlidesToShow] = useState(1); // Default to 1 image for mobile view
@@ -10,7 +10,7 @@ const Carousel = () => {
   useEffect(() => {
     const fetchReview = async () => {
       try {
-        const response = await fetch("/api/reviews");
+        const response = customers;
         const data = await response.json();
         setReview([...data, ...data.slice(0, slidesToShow)]); // Duplicate first slides at the end
       } catch (error) {

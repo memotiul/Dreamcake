@@ -3,30 +3,30 @@ import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { PiShoppingCartFill } from "react-icons/pi";
 import { MdOutlineFullscreen } from "react-icons/md";
 
-const Slider = ({ addToCartHandler }) => {
+const Slider = ({ addToCartHandler,trends }) => {
   const [startIndex, setStartIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(4); // Default to 4 items per page
   const [trendy, setTrendy] = useState([]);
   const [modalImage, setModalImage] = useState(null);
   // Default to 3 items per page
 
-  useEffect(() => {
-    const fetchTrendy = async () => {
-      try {
-        const response = await fetch("/api/trendy");
-        const data = await response.json();
-        setTrendy(data);
-      } catch (error) {
-        console.error("Error fetching Trendy:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchTrendy = async () => {
+  //     try {
+  //       const response = await fetch("/api/trendy");
+  //       const data = await response.json();
+  //       setTrendy(data);
+  //     } catch (error) {
+  //       console.error("Error fetching Trendy:", error);
+  //     }
+  //   };
 
-    fetchTrendy();
-  }, []);
+  //   fetchTrendy();
+  // }, []);
   console.log(trendy);
   const slide = (direction) => {
     if (direction === "next") {
-      if (startIndex + itemsPerPage < trendy.length) {
+      if (startIndex + itemsPerPage < trends.length) {
         setStartIndex(startIndex + 1);
       }
     } else if (direction === "prev") {
@@ -42,7 +42,7 @@ const Slider = ({ addToCartHandler }) => {
       if (window.innerWidth < 768) {
         setItemsPerPage(1); // Show only 1 product on small screens
       } else {
-        setItemsPerPage(4); // Default to 4 trendy on larger screens
+        setItemsPerPage(4); // Default to 4 trends on larger screens
       }
     };
 
@@ -60,7 +60,7 @@ const Slider = ({ addToCartHandler }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (startIndex + itemsPerPage < trendy.length) {
+      if (startIndex + itemsPerPage < trends.length) {
         setStartIndex(startIndex + 1);
       } else {
         setStartIndex(0);
@@ -68,7 +68,7 @@ const Slider = ({ addToCartHandler }) => {
     }, 50000);
 
     return () => clearInterval(interval);
-  }, [startIndex, itemsPerPage, trendy.length]);
+  }, [startIndex, itemsPerPage, trends.length]);
 
   const openModal = (image) => {
     setModalImage(image);
@@ -112,7 +112,7 @@ const Slider = ({ addToCartHandler }) => {
             zIndex: 1,
           }}
         >
-          {trendy
+          {trends
             .slice(startIndex, startIndex + itemsPerPage)
             .map((product, index) => (
               <div
@@ -170,11 +170,11 @@ const Slider = ({ addToCartHandler }) => {
             />
             <FaChevronRight
               className={`h-6 w-6 ${
-                startIndex + itemsPerPage >= trendy.length
+                startIndex + itemsPerPage >= trends.length
                   ? "opacity-50  cursor-pointer"
                   : "hover:text-yellow-400 cursor-pointer"
               }`}
-              disabled={startIndex + itemsPerPage >= trendy.length}
+              disabled={startIndex + itemsPerPage >= trends.length}
               onClick={() => slide("next")}
             />
           </div>

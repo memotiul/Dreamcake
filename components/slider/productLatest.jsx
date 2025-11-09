@@ -3,28 +3,28 @@ import { FaChevronRight } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa";
 import { PiShoppingCartFill } from "react-icons/pi";
 
-const Slider = () => {
+const Slider = ({latests}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerPage = 3;
-  const [latestProducts, setLatestProducts] = useState([]);
+  // const [latestProducts, setLatestProducts] = useState([]);
 
-  useEffect(() => {
-    const fetchLatestProducts = async () => {
-      try {
-        const response = await fetch(
-          "/api/viewMoreProducts/viewLatestProducts"
-        );
-        const data = await response.json();
-        setLatestProducts(data);
-      } catch (error) {
-        console.error("Error fetching snacks:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchLatestProducts = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "/api/viewMoreProducts/viewLatestProducts"
+  //       );
+  //       const data = await response.json();
+  //       setLatestProducts(data);
+  //     } catch (error) {
+  //       console.error("Error fetching snacks:", error);
+  //     }
+  //   };
 
-    fetchLatestProducts();
-  }, []);
+  //   fetchLatestProducts();
+  // }, []);
   const slide = (direction) => {
-    const maxIndex = Math.ceil(latestProducts.length / itemsPerPage) - 1;
+    const maxIndex = Math.ceil(latests.length / itemsPerPage) - 1;
 
     if (direction === "next" && currentIndex < maxIndex) {
       setCurrentIndex(currentIndex + 1);
@@ -34,7 +34,7 @@ const Slider = () => {
   };
   useEffect(() => {
     const interval = setInterval(() => {
-      if (currentIndex < Math.ceil(latestProducts.length / itemsPerPage) - 1) {
+      if (currentIndex < Math.ceil(latests.length / itemsPerPage) - 1) {
         setCurrentIndex(currentIndex + 1);
       } else {
         setCurrentIndex(0);
@@ -42,7 +42,7 @@ const Slider = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [currentIndex, latestProducts.length]);
+  }, [currentIndex, latests.length]);
 
   return (
     <div className="mt-8 ml-2">
@@ -63,13 +63,13 @@ const Slider = () => {
           <FaChevronRight
             className={`h-6 w-6 ${
               currentIndex ===
-              Math.ceil(latestProducts.length / itemsPerPage) - 1
+              Math.ceil(latests.length / itemsPerPage) - 1
                 ? "opacity-50 cursor-not-allowed"
                 : "hover:text-yellow-400"
             }`}
             disabled={
               currentIndex ===
-              Math.ceil(latestProducts.length / itemsPerPage) - 1
+              Math.ceil(latests.length / itemsPerPage) - 1
             }
             onClick={() => slide("next")}
           />
@@ -77,7 +77,7 @@ const Slider = () => {
       </div>
 
       <div className="gap-2 text-gray-300">
-        {latestProducts
+        {latests
           .slice(
             currentIndex * itemsPerPage,
             currentIndex * itemsPerPage + itemsPerPage
