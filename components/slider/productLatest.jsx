@@ -103,5 +103,4 @@ const Slider = ({latests}) => {
     </div>
   );
 };
-
 export default Slider;

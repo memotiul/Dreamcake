@@ -102,5 +102,4 @@ const Slider = ({reviews}) => {
     </div>
   );
 };
-
 export default Slider;

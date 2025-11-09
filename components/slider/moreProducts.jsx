@@ -196,5 +196,4 @@ const Slider = ({ addToCartHandler,trends }) => {
     </div>
   );
 };
-
 export default Slider;

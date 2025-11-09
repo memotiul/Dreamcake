@@ -3,7 +3,6 @@ import Header from "../components/layouts/header";
 import CategoryItems from "../components/category/categoryItems";
 import Footer from "../components/layouts/footer";
 import Update from "../components/layouts/update";
-
 import SliderContent from "../components/slider/sliderContent";
 
 export default function Home({trends,flavours,snacks,latests,reviews,tops,customers}) {

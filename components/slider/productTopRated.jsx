@@ -79,7 +79,6 @@ const Slider = ({ addToCartHandler ,tops}) => {
           />
         </div>
       </div>
-
       <div className="grid grid-row-1 md:grid-row-3 gap-2 text-gray-300">
         {tops
           .slice(

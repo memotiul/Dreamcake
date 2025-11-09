@@ -247,7 +247,6 @@ export default function Home({trends,flavours,snacks,latests,reviews,tops,custom
         <ProductLatest addToCartHandler={addToCartHandler} latests={latests}/>
       </div>
       <MoreProducts addToCartHandler={addToCartHandler} trends={trends}/>
-
       {/* <Review id="review-section" /> */}
       <AutoSliderReview customers={customers}/>
     </>

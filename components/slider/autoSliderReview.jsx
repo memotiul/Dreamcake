@@ -19,7 +19,6 @@ const Carousel = ({customers}) => {
     };
 
     fetchReview();
-
     // Set the number of images to show based on screen size
     const updateSlidesToShow = () => {
       if (window.innerWidth >= 1024) {
