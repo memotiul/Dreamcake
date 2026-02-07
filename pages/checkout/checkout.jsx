@@ -328,7 +328,7 @@ const checkout = () => {
                       </div>
                       <div className="w-64">
                         <h2 className="text-xl font-bold">
-                          {product.description}
+                          {product.name}
                         </h2>
                         <p>
                           {
