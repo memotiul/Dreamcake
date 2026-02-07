@@ -79,7 +79,7 @@ const CartPage = () => {
                           <figure className="flex leading-5 items-center">
                             <div>
                               <div className="block w-36 h-36 rounded border border-gray-200 overflow-hidden">
-                                {/* <img src={item.image} alt={item.name} /> */}
+                                <img src={item.image} alt={item.name} />
                               </div>
                             </div>
                             <figcaption className="ml-3">
