@@ -84,7 +84,7 @@ const CartPage = () => {
                             </div>
                             <figcaption className="ml-3">
                               <p className="text-white text-xl">
-                                {item.description}
+                                {item.name}
                               </p>
                               <p className="mt-1 text-gray-400">
                                 Price: Rs.{" "}
